@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Copy notebooks up w/out "hidden" cells
 NOTEBOOKS=*.ipynb
 for f in $NOTEBOOKS
 do
@@ -9,8 +11,7 @@ do
 done
 
 # Move datasets up
-DATASETS=data_*.txt
-for f in $DATASETS
-do
-  mv $f ../$f
-done
+if [ -d data ]
+then
+  mv data ../
+fi
